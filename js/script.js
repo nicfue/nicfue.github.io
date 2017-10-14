@@ -49,7 +49,7 @@ function showWeather(data) {
 
   // Här returneras all den data vi vill visa upp i HTML. Med plustecknet kan vi lägga till alla parametrar vi valt ut för display.
   return '<h2>Väder i '+ data.name +', '+ data.sys.country +'</h2>' +
-  '<h2><img src="http://openweathermap.org/img/w/'+ data.weather[0].icon +'.png"> '+ data.main.temp + '&deg;C</h2>' +
+  '<h2><img src="https://openweathermap.org/img/w/'+ data.weather[0].icon +'.png"> '+ data.main.temp + '&deg;C</h2>' +
   '<h4>'+ data.weather[0].description + '</h4> <br>' +
   '<h3>Moln: '+ data.clouds.all +'%</h3>' +
   '<h3>Vindhastighet: '+ data.wind.speed +' m/s</h3>' +
@@ -73,7 +73,7 @@ function showWeather(data) {
       if (city != '') {
         // Vi använder ajax metoden för att hämta datan via url, type och dataType. För att få ut värdena i Celcius lägger vi till units=metric.
         $.ajax({
-          url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric' + '&APPID=' + api_key,
+          url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric' + '&APPID=' + api_key,
           type: 'GET',
           dataType: 'jsonp',
           // JSON datan från vår request sparas i funktionen "success" som vi sedan skickar vidare till funktionen "showForecast" för att visa upp innehållet i domen.
@@ -115,14 +115,14 @@ $('#forecast').html(html)
 $(function() {
   var loc;
 // Vi använder getJSON för att hämta information från din befintliga lokalisering
-  $.getJSON('http://ipinfo.io/', function(coord){
+  $.getJSON('https://ipinfo.io/', function(coord){
     console.log(coord); //loggar ut koordinaterna i form av en sträng
     // Vi behöver omvandla koordinaterna till en array vilket vi gör med split metoden
     loc = coord.loc.split(",");
     console.log(loc);
     // Vi hämtar information från sunrise-sunset.org api och lägger till värdena för latitud och longitude från arrayen
     $.ajax({
-      url: 'http://api.sunrise-sunset.org/json?lat=' + loc[0] + '&lng=' + loc[1] + '&lang=sv',
+      url: 'https://api.sunrise-sunset.org/json?lat=' + loc[0] + '&lng=' + loc[1] + '&lang=sv',
       type: "GET",
       dataType: 'jsonp',
       // JSON datan från vår request sparas i funktionen "success" som vi sedan skickar vidare till funktionen "showSunrise" och "showSunset" för att visa upp innehållet i domen.
