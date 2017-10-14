@@ -12,7 +12,7 @@ $(document).ready(function() {
       if (city != '') {
         // Vi använder ajax metoden för att hämta datan via url, type och dataType. För att få ut värdena i Celcius lägger vi till units=metric.
         $.ajax({
-          url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric' + '&lang=se' + '&APPID=' + api_key,
+          url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric' + '&lang=se' + '&APPID=' + api_key,
           type: 'GET',
           dataType: 'jsonp',
           // JSON datan från vår request sparas i funktionen "success" som vi sedan skickar vidare till funktionen "showWeather" för att visa upp innehållet i domen.
