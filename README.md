@@ -1,4 +1,1 @@
-# nicfue.github.io
-
-
-## https://nicfue.github.io
+### [**GH-pages**](https://nicfue.github.io)
